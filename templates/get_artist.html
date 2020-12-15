@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Band Finder{% endblock %}
+{% block content %}
+<div class="container-fluid banner">
+  <h1>Tell me who you are listening to...</h1>
+  <h2>Click the icon to discover new artists.</h2>
+</div>
+<div class="search-box">
+  <form action="{{ 'get_artist' }}" method="post" autocomplete="off">
+    <input type="text" class="search" id="artist" name="artist" />
+    <div class="line-1"></div>
+    <div class="line-2"></div>
+  </form>
+</div>
+<div class="container-fluid bubbles">
+  <div class="row">
+    {% for key, value in data.items() %}
+    <div class="col-1-10">
+      <img src="{{value}}" >
+      <p>
+        {{key}}
+        </p>
+      </div>
+    {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>{% block title %}Band Finder{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+  		$('.search').click(function() {
+  				$('.search').addClass('active');
+  				$('.line-1').css({
+  						'transform': 'rotate(45deg)',
+  						'top': '0px',
+  						'left': '0px'
+  				});
+  				$('.line-2').css({
+  						'height':'40px',
+  						'opacity':'1'
+  				});
+  		});
+  		$('.line-1, .line-2').click(function() {
+  				$('.search').removeClass('active').val('');
+  				$('.line-1').css({
+  						'transform': 'rotate(-45deg)',
+  						'top': '-20px',
+  						'left': '45px'
+  				});
+  				$('.line-2').css({
+  						'height':'0px',
+  						'opacity':'0'
+  				});
+
+  		});
+  });
+    </script>
+</head>
+<body>
+{% block content %}{% endblock %}
+
+  </body>
+</html>
